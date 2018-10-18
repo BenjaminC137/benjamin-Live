@@ -159,7 +159,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--\n<div *ngIf=\"arduino\">\n  <h2>{{arduino.title | uppercase}} Details</h2>\n  <div><span>id: </span>{{arduino.id}}</div>\n  <div>\n    <label>title:\n      <input [(ngModel)]=\"arduino.title\" placeholder=\"title\"/>\n    </label>\n  </div>\n-->\n\n<div class=\"project\">\n\t<h3>{{arduino.title | uppercase}}</h3>\n\t<br>\n\t<p>{{arduino.description}}\n\t<br>\n\tCreated: {{arduino.dateCreated | date}}\n\t<br>\n\tCompleted: {{arduino.dateCompleted | date}}\n\t<br>\n\t\t</p>\n<div class=\"\">\n\t\t<a href=\"{{arduino.imagePath}}\"><img class=\"arduino-cards img-scale\" src=\"{{arduino.imagePath}}\"></a>\n\t</div>\n\t<br>\n\n\t<h3>More images: </h3>\n<div class=\"container\">\n\t<div class=\"arduino-cards\" *ngFor=\"let image of arduino.moreImagesPath\"><a href=\"{{image}}\"><img class=\"img-scale\" src={{image}}></a></div>\n</div>\n<!--\t<div *ngFor=\"let arduino of \" ></div>-->\n\n<!--\n\t\t<div class=\"card rounded-image arduino-cards\"\n\t\t*ngFor=\"let arduino of arduinoProjects\"     [class.selected]=\"arduino === selectedArduino\" (click)=\"onSelect(arduino)\"><h6>{{arduino.title}}</h6>\n\t\t<img src=\"{{arduino.imagePath}}\">\n\t</div>\n-->\n</div>\n"
+module.exports = "<!--\n<div *ngIf=\"arduino\">\n  <h2>{{arduino.title | uppercase}} Details</h2>\n  <div><span>id: </span>{{arduino.id}}</div>\n  <div>\n    <label>title:\n      <input [(ngModel)]=\"arduino.title\" placeholder=\"title\"/>\n    </label>\n  </div>\n-->\n<div class=\"project\">\n\t<h3>{{arduino.title | uppercase}}</h3>\n\t<br>\n\t<p>{{arduino.description}}\n\t<br>\n\tCreated: {{arduino.dateCreated | date}}\n\t<br>\n\tCompleted: {{arduino.dateCompleted | date}}\n\t<br>\n\t\t</p>\n<div class=\"\">\n\t\t<a href=\"{{arduino.imagePath}}\"><img class=\"arduino-cards img-scale\" src=\"{{arduino.imagePath}}\"></a>\n\t</div>\n\t<br>\n\n\t<h3>More images: </h3>\n<div class=\"container\">\n\t<div class=\"arduino-cards\" *ngFor=\"let image of arduino.moreImagesPath\"><a href=\"{{image}}\"><img class=\"img-scale\" src={{image}}></a></div>\n</div>\n<!--\t<div *ngFor=\"let arduino of \" ></div>-->\n\n<!--\n\t\t<div class=\"card rounded-image arduino-cards\"\n\t\t*ngFor=\"let arduino of arduinoProjects\"     [class.selected]=\"arduino === selectedArduino\" (click)=\"onSelect(arduino)\"><h6>{{arduino.title}}</h6>\n\t\t<img src=\"{{arduino.imagePath}}\">\n\t</div>\n-->\n</div>\n"
 
 /***/ }),
 
@@ -277,7 +277,7 @@ var ArduinoProjects = [
         description: 'Counts crunches while I exercise so I can watch TV and not have to count. I lose track when I count anyway because I start thinking about other things.',
         dateCreated: '2018/10/05',
         dateCompleted: '2018/10/08',
-        imagePath: "assets/images/ArduinoNeechiFeeder/IMG_7441.png"
+        imagePath: "assets/ArduinoCrunchCounter/crunchCounter-beta-IMG_4616.jpg"
     },
     {
         id: 4,
@@ -285,7 +285,7 @@ var ArduinoProjects = [
         description: 'Box on fridge buzzes and flashes when open too long or it doesn\'t fully close.',
         dateCreated: '2017/01/01',
         dateCompleted: '2017/01/01',
-        imagePath: "assets/ArduinoTemperatureAlarm/temperature-alarm-IMG_7652.png"
+        imagePath: "assets/ArduinoFridgeAlarm/FridgeAlarm-box-IMG_4612.jpg"
     },
     {
         id: 5,
@@ -333,7 +333,7 @@ var ArduinoProjects = [
         description: '50 Gram scale using a .001 accuracy load cell. Includes a tare.',
         dateCreated: '2017/01/01',
         dateCompleted: '2017/01/01',
-        imagePath: "assets/"
+        imagePath: "assets/ArduinoScale/scale-calibrating-IMG_4610.jpg"
     }
 ];
 
