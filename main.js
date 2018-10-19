@@ -567,7 +567,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h2> Arduino Projects</h2>\n  <div  *ngIf=\"show\">\n\t  \t<a href=\"#\" (click)=\"toggle()\" class=\"btn-primary\">Back/Close</a>\n\t\t<app-arduino-detail [arduino]=\"selectedArduino\"></app-arduino-detail>\n   </div>\n<br>\n<div class=\"card-deck\">\n\t<div class=\"card arduino-cards\" *ngFor=\"let arduino of arduinoProjects\" [class.selected]=\"arduino === selectedArduino\" (click)=\"onSelect(arduino); toggle()\"><h6>{{arduino.title}}</h6>\n\t\t<img style=\"\" src=\"{{arduino.imagePath}}\">\n\t\t<div class=\"card-footer\">\n\t\t  <small class=\"text-muted\">{{arduino.dateCompleted}}</small>\n\t\t</div>\t\t\n\t</div>\n</div>\n"
+module.exports = "<br>\n<h2> Arduino Projects</h2>\n  <div  *ngIf=\"show\">\n\t  \t<a href=\"#\" (click)=\"toggle()\" class=\"btn-primary\">Back/Close</a>\n\t\t<app-arduino-detail [arduino]=\"selectedArduino\"></app-arduino-detail>\n   </div>\n<div class=\"card-deck\">\n\t<div class=\"card arduino-cards\" *ngFor=\"let arduino of arduinoProjects\" [class.selected]=\"arduino === selectedArduino\" (click)=\"onSelect(arduino); toggle()\"><h6 class=\"card-title\" >{{arduino.title}}</h6>\n\t\t<img class=\"card-img-top\" style=\"\" src=\"{{arduino.imagePath}}\">\n\t\t<div class=\"card-body\">\n<!--\n\t\t\t<div class=\"card-text\">\n\t\t\t\t<p> a</p>\n\t\t\t</div>\n-->\n\t\t</div>\n\t\t<div class=\"card-footer\" style=\"margin: 0px\">\n\t\t  <small class=\"text-muted\">{{arduino.dateCompleted}}</small>\n\t\t</div>\n\t</div>\n</div>\n"
 
 /***/ }),
 
