@@ -54,9 +54,10 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 var routes = [
+    { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: 'home', component: _home_home_component__WEBPACK_IMPORTED_MODULE_2__["HomeComponent"] },
     { path: 'arduino', component: _arduino_arduino_component__WEBPACK_IMPORTED_MODULE_3__["ArduinoComponent"] },
-    { path: 'arduino-detail', component: _arduino_detail_arduino_detail_component__WEBPACK_IMPORTED_MODULE_4__["ArduinoDetailComponent"] },
+    { path: 'arduino-detail/:id', component: _arduino_detail_arduino_detail_component__WEBPACK_IMPORTED_MODULE_4__["ArduinoDetailComponent"] },
     { path: 'personal', component: _personal_personal_component__WEBPACK_IMPORTED_MODULE_5__["PersonalComponent"] },
     { path: 'professional', component: _professional_professional_component__WEBPACK_IMPORTED_MODULE_6__["ProfessionalComponent"] }
 ];
@@ -222,7 +223,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--\n<div *ngIf=\"arduino\">\n  <h2>{{arduino.title | uppercase}} Details</h2>\n  <div><span>id: </span>{{arduino.id}}</div>\n  <div>\n    <label>title:\n      <input [(ngModel)]=\"arduino.title\" placeholder=\"title\"/>\n    </label>\n  </div>\n-->\n<div class=\"project\">\n\t<h3>{{arduino.title | uppercase}}</h3>\n\t<br>\n\t<div class=\"box\">\n\t\t<h4>Introduction: </h4>\n\t\t{{arduino.description}}\n\t\t<br>\n\t\t<br>\n\t\tCreated: {{arduino.dateCreated | date}}\n\t\t<br>\n\t\tCompleted: {{arduino.dateCompleted | date}}\n\t\t<br>\n\t</div>\n\t<br>\n\t<div class=\"box\">\n\t\t<h4>Components: </h4>\n\t\t<ul>\n\t\t\t<li *ngFor=\"let component of arduino.components\">{{component}}</li>\n\t\t</ul>\n\t</div>\n\t<br>\n\t<div class=\"box\">\n\t\t<h4>Libraries: </h4>\n\t\t<ul>\n\t\t\t<li *ngFor=\"let library of arduino.libraries\">{{library}}</li>\n\t\t</ul>\n\t</div>\n\t<br>\n\t<div class=\"arduino-cards\">\n\t\t<img class=\"img-scale\" src=\"{{arduino.imagePath}}\">\n\t\t<a href=\"{{arduino.imagePath}}\">View hi-res\n\t\t</a>\n\t</div>\n\t<br>\n<!--\n\t<div class=\"box\"><iframe class=\"box\" width=\"560\" height=\"315\" src=\"{{arduino.videoUrl}}\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen></iframe></div>\n-->\n\t<h4>More images: </h4>\n\t<div class=\"container\">\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col arduino-cards\" *ngFor=\"let image of arduino.moreImagesPath\">\n\t\t\t\t<img class=\"img-scale\" src={{image}}>\n\t\t\t\t<a href=\"{{image}}\">View hi-res</a>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\t\t<h4>Video: </h4>\n\t\t<p>{{arduino.videoUrl}}</p>\n</div>\n<br>\n<br>\n"
+module.exports = "<!--\n<div *ngIf=\"arduino\">\n  <h2>{{arduino.title | uppercase}} Details</h2>\n  <div><span>id: </span>{{arduino.id}}</div>\n  <div>\n    <label>title:\n      <input [(ngModel)]=\"arduino.title\" placeholder=\"title\"/>\n    </label>\n  </div>\n-->\n<button class=\"btn-primary\" (click)=\"goBack()\">Back/Close</button>\n<div class=\"project\">\n\t<h3>{{arduino.title | uppercase}}</h3>\n\t<br>\n\t<div class=\"box\">\n\t\t<h4>Introduction: </h4>\n\t\t{{arduino.description}}\n\t\t<br>\n\t\t<br>\n\t\tCreated: {{arduino.dateCreated | date}}\n\t\t<br>\n\t\tCompleted: {{arduino.dateCompleted | date}}\n\t\t<br>\n\t</div>\n\t<br>\n\t<div class=\"box\">\n\t\t<h4>Components: </h4>\n\t\t<ul>\n\t\t\t<li *ngFor=\"let component of arduino.components\">{{component}}</li>\n\t\t</ul>\n\t</div>\n\t<br>\n\t<div class=\"box\">\n\t\t<h4>Libraries: </h4>\n\t\t<ul>\n\t\t\t<li *ngFor=\"let library of arduino.libraries\">{{library}}</li>\n\t\t</ul>\n\t</div>\n\t<br>\n\t<div class=\"arduino-cards\">\n\t\t<img class=\"img-scale\" src=\"{{arduino.imagePath}}\">\n\t\t<a href=\"{{arduino.imagePath}}\">View hi-res\n\t\t</a>\n\t</div>\n\t<br>\n<!--\n\t<div class=\"box\"><iframe class=\"box\" width=\"560\" height=\"315\" src=\"{{arduino.videoUrl}}\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen></iframe></div>\n-->\n\t<h4>More images: </h4>\n\t<div class=\"container\">\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col arduino-cards\" *ngFor=\"let image of arduino.moreImagesPath\">\n\t\t\t\t<img class=\"img-scale\" src={{image}}>\n\t\t\t\t<a href=\"{{image}}\">View hi-res</a>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\t\t<h4>Video: </h4>\n\t\t<p>{{arduino.videoUrl}}</p>\n</div>\n<br>\n<br>\n"
 
 /***/ }),
 
@@ -237,7 +238,9 @@ module.exports = "<!--\n<div *ngIf=\"arduino\">\n  <h2>{{arduino.title | upperca
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ArduinoDetailComponent", function() { return ArduinoDetailComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _arduino_project_model__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../arduino-project-model */ "./src/app/arduino-project-model.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _arduino_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../arduino.service */ "./src/app/arduino.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -249,44 +252,36 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
+
 var ArduinoDetailComponent = /** @class */ (function () {
-    function ArduinoDetailComponent() {
+    function ArduinoDetailComponent(route, arduinoService, location) {
+        this.route = route;
+        this.arduinoService = arduinoService;
+        this.location = location;
     }
     ArduinoDetailComponent.prototype.ngOnInit = function () {
+        this.getArduino();
     };
-    __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
-        __metadata("design:type", _arduino_project_model__WEBPACK_IMPORTED_MODULE_1__["ArduinoProjectModel"])
-    ], ArduinoDetailComponent.prototype, "arduino", void 0);
+    ArduinoDetailComponent.prototype.getArduino = function () {
+        var _this = this;
+        var id = +this.route.snapshot.paramMap.get('id');
+        this.arduinoService.getArduino(id).subscribe(function (arduino) { return _this.arduino = arduino; });
+    };
+    ArduinoDetailComponent.prototype.goBack = function () {
+        this.location.back();
+    };
     ArduinoDetailComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-arduino-detail',
             template: __webpack_require__(/*! ./arduino-detail.component.html */ "./src/app/arduino-detail/arduino-detail.component.html"),
             styles: [__webpack_require__(/*! ./arduino-detail.component.css */ "./src/app/arduino-detail/arduino-detail.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"],
+            _arduino_service__WEBPACK_IMPORTED_MODULE_3__["ArduinoService"],
+            _angular_common__WEBPACK_IMPORTED_MODULE_2__["Location"]])
     ], ArduinoDetailComponent);
     return ArduinoDetailComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/arduino-project-model.ts":
-/*!******************************************!*\
-  !*** ./src/app/arduino-project-model.ts ***!
-  \******************************************/
-/*! exports provided: ArduinoProjectModel */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ArduinoProjectModel", function() { return ArduinoProjectModel; });
-var ArduinoProjectModel = /** @class */ (function () {
-    function ArduinoProjectModel() {
-    }
-    return ArduinoProjectModel;
 }());
 
 
@@ -565,6 +560,56 @@ var ArduinoProjects = [
 
 /***/ }),
 
+/***/ "./src/app/arduino.service.ts":
+/*!************************************!*\
+  !*** ./src/app/arduino.service.ts ***!
+  \************************************/
+/*! exports provided: ArduinoService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ArduinoService", function() { return ArduinoService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _arduino_projects__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./arduino-projects */ "./src/app/arduino-projects.ts");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var ArduinoService = /** @class */ (function () {
+    function ArduinoService() {
+    }
+    //	getArduinoProjects(): ArduinoProjectModel[]{
+    //	return ArduinoProjects;
+    //	}
+    ArduinoService.prototype.getArduinoProjects = function () {
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(_arduino_projects__WEBPACK_IMPORTED_MODULE_1__["ArduinoProjects"]);
+    };
+    ArduinoService.prototype.getArduino = function (id) {
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(_arduino_projects__WEBPACK_IMPORTED_MODULE_1__["ArduinoProjects"].find(function (arduino) { return arduino.id === id; }));
+    };
+    ArduinoService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [])
+    ], ArduinoService);
+    return ArduinoService;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/arduino/arduino.component.css":
 /*!***********************************************!*\
   !*** ./src/app/arduino/arduino.component.css ***!
@@ -583,7 +628,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<br>\n<h2> Arduino Projects</h2>\n\n  <div  *ngIf=\"show\">\n\t  \t<a href=\"#\" (click)=\"toggle()\" class=\"btn-primary\">Back/Close</a>\n\t\t<app-arduino-detail [arduino]=\"selectedArduino\"></app-arduino-detail>\n   </div>\n<div class=\"card-deck\">\n\t<div class=\"card arduino-cards\" *ngFor=\"let arduino of arduinoProjects\" [class.selected]=\"arduino === selectedArduino\" (click)=\"onSelect(arduino); toggle()\"><h6 class=\"card-title\" >{{arduino.title}}</h6>\n\t\t<img class=\"card-img-top\" style=\"\" src=\"{{arduino.imagePath}}\">\n\t\t<div class=\"card-body\">\n\t\t\t\n\t\t\n\t\t\t<div class=\"card-text\">\n\t\t\t\t<p> a space for text</p>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"card-footer\" style=\"margin: 0px\">\n\t\t  <small class=\"text-muted\">{{arduino.dateCompleted}}</small>\n\t\t</div>\n\t</div>\n</div>\n"
+module.exports = "<br>\n<h2> Arduino Projects</h2>\n<!--\n  <div  *ngIf=\"show\">\n\t  \t<a href=\"#\" (click)=\"toggle()\" class=\"btn-primary\">Back/Close</a>\n\t\t<app-arduino-detail [arduino]=\"selectedArduino\"></app-arduino-detail>\n   </div>\n-->\n<div class=\"card-deck\">\n<!--\t<div class=\"card arduino-cards\" *ngFor=\"let arduino of arduinoProjects\" [class.selected]=\"arduino === selectedArduino\" (click)=\"onSelect(arduino); toggle()\">-->\n\t<div class=\"card arduino-cards\" *ngFor=\"let arduino of arduinoProjects\" routerLink=\"/arduino-detail/{{arduino.id}}\">\n\t\t<h6 class=\"card-title\" >{{arduino.title}}</h6>\n\t\t<img class=\"card-img-top\" style=\"\" src=\"{{arduino.imagePath}}\">\n\t\t<div class=\"card-body\">\n\n\t\t\t<div class=\"card-text\">\n\t\t\t\t<p> a space for text</p>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"card-footer\" style=\"margin: 0px\">\n\t\t  <small class=\"text-muted\">{{arduino.dateCompleted}}</small>\n\t\t</div>\n\t</div>\n</div>\n"
 
 /***/ }),
 
@@ -598,8 +643,7 @@ module.exports = "<br>\n<h2> Arduino Projects</h2>\n\n  <div  *ngIf=\"show\">\n\
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ArduinoComponent", function() { return ArduinoComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _arduino_project_model__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../arduino-project-model */ "./src/app/arduino-project-model.ts");
-/* harmony import */ var _arduino_projects__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../arduino-projects */ "./src/app/arduino-projects.ts");
+/* harmony import */ var _arduino_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../arduino.service */ "./src/app/arduino.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -610,33 +654,31 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-
+//import { ArduinoProjects } from '../arduino-projects';
 
 var ArduinoComponent = /** @class */ (function () {
-    function ArduinoComponent() {
+    function ArduinoComponent(arduinoService) {
+        this.arduinoService = arduinoService;
         this.show = false;
         this.buttonName = 'show';
-        this.arduinoProjects = _arduino_projects__WEBPACK_IMPORTED_MODULE_2__["ArduinoProjects"];
     }
     ArduinoComponent.prototype.ngOnInit = function () {
+        this.getArduinoProjects();
+    };
+    ArduinoComponent.prototype.getArduinoProjects = function () {
+        var _this = this;
+        this.arduinoService.getArduinoProjects().subscribe(function (arduinoProjects) { return _this.arduinoProjects = arduinoProjects; });
     };
     ArduinoComponent.prototype.toggle = function () {
         this.show = !this.show;
     };
-    ArduinoComponent.prototype.onSelect = function (arduino) {
-        this.selectedArduino = arduino;
-    };
-    __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
-        __metadata("design:type", _arduino_project_model__WEBPACK_IMPORTED_MODULE_1__["ArduinoProjectModel"])
-    ], ArduinoComponent.prototype, "arduino", void 0);
     ArduinoComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-arduino',
             template: __webpack_require__(/*! ./arduino.component.html */ "./src/app/arduino/arduino.component.html"),
             styles: [__webpack_require__(/*! ./arduino.component.css */ "./src/app/arduino/arduino.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_arduino_service__WEBPACK_IMPORTED_MODULE_1__["ArduinoService"]])
     ], ArduinoComponent);
     return ArduinoComponent;
 }());
@@ -663,7 +705,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "Welcome to my website.\n<br>\n\t{{now | date}}\n\t<br>\n<!--{{ \"now\" | uppercase}}-->\n\t<br> \n\n<!--<app-arduino-detail [arduino]=\"selectedArduino\"></app-arduino-detail>-->\n\n<p>\n\t<a routerLink=\"/arduino\">Arduino</a>\n\t<br>\n\t<a routerLink=\"/personal\">Personal</a>\n\t<br>\n\t<a routerLink=\"/professional\">Professional</a>\n</p>\n<div>\n\t<img src=\"/assets/PortalBenjaminDark.png\">\n</div>\n"
+module.exports = "Welcome to my website.\n<br>\n\t{{now | date}}\n\t<br>\n<!--{{ \"now\" | uppercase}}-->\n\t<br>\n\n<!--<app-arduino-detail [arduino]=\"selectedArduino\"></app-arduino-detail>-->\n\n<p>\n\t<a routerLink=\"/arduino\">Arduino</a>\n\t<br>\n\t<a routerLink=\"/personal\">Personal</a>\n\t<br>\n\t<a routerLink=\"/professional\">Professional</a>\n</p>\n<div>\n\t<img src=\"/assets/PortalBenjaminDark.png\">\n</div>\n"
 
 /***/ }),
 
@@ -936,7 +978,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<br>\n\n<h4 ><a class=\"box\" style=\"font-size: 1em\" routerLink=\"/arduino\">Arduino</a></h4>\n<br>\n<div>\n\t<h5>\n\t\tMore professional content coming soon!\n\t</h5>\n</div>"
+module.exports = "<br>\n\n<h4 ><a class=\"box\" style=\"font-size: 1em\" routerLink=\"/arduino\">Arduino</a></h4>\n<br>\n<div>\n\t<h5>\n\t\tMore professional content coming soon!\n\t</h5>\n</div>\n"
 
 /***/ }),
 
