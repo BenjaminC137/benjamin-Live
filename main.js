@@ -34,7 +34,12 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppRoutingModule", function() { return AppRoutingModule; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
+/* harmony import */ var _arduino_arduino_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./arduino/arduino.component */ "./src/app/arduino/arduino.component.ts");
+/* harmony import */ var _arduino_detail_arduino_detail_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./arduino-detail/arduino-detail.component */ "./src/app/arduino-detail/arduino-detail.component.ts");
+/* harmony import */ var _personal_personal_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./personal/personal.component */ "./src/app/personal/personal.component.ts");
+/* harmony import */ var _professional_professional_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./professional/professional.component */ "./src/app/professional/professional.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -43,14 +48,25 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 };
 
 
+
+
+
+
+
+var routes = [
+    { path: 'home', component: _home_home_component__WEBPACK_IMPORTED_MODULE_2__["HomeComponent"] },
+    { path: 'arduino', component: _arduino_arduino_component__WEBPACK_IMPORTED_MODULE_3__["ArduinoComponent"] },
+    { path: 'arduino-detail', component: _arduino_detail_arduino_detail_component__WEBPACK_IMPORTED_MODULE_4__["ArduinoDetailComponent"] },
+    { path: 'personal', component: _personal_personal_component__WEBPACK_IMPORTED_MODULE_5__["PersonalComponent"] },
+    { path: 'professional', component: _professional_professional_component__WEBPACK_IMPORTED_MODULE_6__["ProfessionalComponent"] }
+];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
     }
     AppRoutingModule = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
-            imports: [
-                _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"]
-            ],
+            imports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"].forRoot(routes)],
+            exports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]],
             declarations: []
         })
     ], AppRoutingModule);
@@ -79,7 +95,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-nav-bar></app-nav-bar>\n<br><br>\n<app-arduino></app-arduino>\n<br>\n© 2018 Benjamin Salasek\n"
+module.exports = "<app-nav-bar></app-nav-bar>\n<br><br>\n<!--<app-arduino></app-arduino>-->\n<router-outlet></router-outlet>\n\n<br>\n© 2018 Benjamin Salasek\n"
 
 /***/ }),
 
@@ -294,9 +310,9 @@ var ArduinoProjects = [
         description: 'I designed a dog feeder and built the entire machine using a stepper motor, a servo motor, an LCD screen, an RTC module, custom home-made metal frame and agitator, arduino nano and everything else I used...',
         dateCreated: '2018/03/21',
         dateCompleted: '2018/04/18',
-        imagePath: "assets/ArduinoNeechiFeeder/Neechi-full-IMG_8278.png",
+        imagePath: "assets/ArduinoNeechiFeeder/Neechi-full-IMG_8273.jpeg",
         moreImagesPath: [
-            "assets/ArduinoNeechiFeeder/Neechi-agitator-assembly-IMG_8224.png", "assets/ArduinoNeechiFeeder/Neechi-agitator-rod-IMG_8261-2.png", "assets/ArduinoNeechiFeeder/Neechi-agitator-assembly-IMG_8224.png", "assets/ArduinoNeechiFeeder/Neechi-agitator-rod-IMG_8261-2.png", "assets/ArduinoNeechiFeeder/Neechi-door-not-cut-IMG_6596.png", "assets/ArduinoNeechiFeeder/Neechi-electronics-and-machine-IMG_7498.png", "assets/ArduinoNeechiFeeder/Neechi-electronics-dark-IMG_7545.png", "assets/ArduinoNeechiFeeder/Neechi-full-room-IMG_8273.png", "assets/ArduinoNeechiFeeder/Neechi-motor-mount-back-IMG_8192.png", "assets/ArduinoNeechiFeeder/Neechi-motor-mount-IMG_8181.png", "assets/ArduinoNeechiFeeder/Neechi-motor-mount-on-motor-IMG_8174.png", "assets/ArduinoNeechiFeeder/Neechi-motor-mounted-IMG_6585.png", "assets/ArduinoNeechiFeeder/Neechi-mounted-old-stepper-IMG_7465.png", "assets/ArduinoNeechiFeeder/Neechi-room-IMG_8230.png", "assets/ArduinoNeechiFeeder/Neechi-workbench-IMG_7441.png"
+            "assets/ArduinoNeechiFeeder/Neechi-agitator-assembly-IMG_8224.png", "assets/ArduinoNeechiFeeder/Neechi-agitator-rod-IMG_8261-2.png", "assets/ArduinoNeechiFeeder/Neechi-door-not-cut-IMG_6596.png", "assets/ArduinoNeechiFeeder/Neechi-electronics-and-machine-IMG_7498.png", "assets/ArduinoNeechiFeeder/Neechi-electronics-dark-IMG_7545.png", "assets/ArduinoNeechiFeeder/Neechi-full-room-IMG_8273.png", "assets/ArduinoNeechiFeeder/Neechi-motor-mount-back-IMG_8192.png", "assets/ArduinoNeechiFeeder/Neechi-motor-mount-IMG_8181.png", "assets/ArduinoNeechiFeeder/Neechi-motor-mount-on-motor-IMG_8174.png", "assets/ArduinoNeechiFeeder/Neechi-motor-mounted-IMG_6585.png", "assets/ArduinoNeechiFeeder/Neechi-mounted-old-stepper-IMG_7465.png", "assets/ArduinoNeechiFeeder/Neechi-room-IMG_8230.png", "assets/ArduinoNeechiFeeder/Neechi-workbench-IMG_7441.png"
         ],
         videoUrl: "https://www.youtube.com/embed/lyI5C47GDH0",
         components: [
@@ -322,9 +338,9 @@ var ArduinoProjects = [
         description: 'A car that roams around the house for companionship so people don\'t feel lonely.',
         dateCreated: '2016/01/01',
         dateCompleted: '2016/01/02',
-        imagePath: "assets/ArduinoBuddy/buddy-full-IMG_0423.png",
+        imagePath: "assets/ArduinoBuddy/buddy-full-top-IMG_0541.jpeg",
         moreImagesPath: [
-            "assets/coming-soon.png"
+            "assets/ArduinoBuddy/buddy-full-front-IMG_0542.jpeg", "assets/ArduinoBuddy/buddy-full-old-IMG_0423.png"
         ],
         videoUrl: "coming soon",
         components: [
@@ -369,8 +385,8 @@ var ArduinoProjects = [
         id: 4,
         title: 'Fridge Alarm',
         description: 'Box on fridge buzzes and flashes when open too long or it doesn\'t fully close.',
-        dateCreated: '2017/01/01',
-        dateCompleted: '2017/01/01',
+        dateCreated: '2017/09/01',
+        dateCompleted: '2017/09/02',
         imagePath: "assets/ArduinoFridgeAlarm/FridgeAlarm-box-IMG_4612.jpg",
         moreImagesPath: [
             "assets/ArduinoFridgeAlarm/FridgeAlarm-button-IMG_4614.jpg"
@@ -391,7 +407,7 @@ var ArduinoProjects = [
         title: 'Home Box',
         description: 'Automatically turns on lights when you walk by. Uses the unused buttons on the TV remote to turn on or off. Has manual buttons.',
         dateCreated: '2017/01/01',
-        dateCompleted: '2017/01/01',
+        dateCompleted: '2017/12/08',
         imagePath: "assets/ArduinoHomeBox/Homebox-complete-IMG_8136.png",
         moreImagesPath: [
             "assets/coming-soon.png"
@@ -411,8 +427,8 @@ var ArduinoProjects = [
         id: 6,
         title: 'Smart-tank',
         description: 'Analyzes surroundings and chooses where to go.',
-        dateCreated: '2017/01/01',
-        dateCompleted: '2017/01/01',
+        dateCreated: '2018/01/07',
+        dateCompleted: '2018/01/21',
         imagePath: "assets/ArduinoSmartTank/smartTank-hot-art-IMG_3017.jpeg",
         moreImagesPath: [
             "assets/coming-soon.png"
@@ -442,9 +458,9 @@ var ArduinoProjects = [
     {
         id: 7,
         title: 'Security System',
-        description: 'Security System to fend off intruders.',
-        dateCreated: '2017/01/01',
-        dateCompleted: '2017/01/01',
+        description: 'Security System to fend off intruders. Exact dates unknown',
+        dateCreated: '2018/07/01',
+        dateCompleted: '2018/07/02',
         imagePath: "assets/ArduinoSecuritySystem/SecuritySystem-inside-IMG_4506.jpeg",
         moreImagesPath: [
             "assets/coming-soon.png"
@@ -464,7 +480,7 @@ var ArduinoProjects = [
         title: 'Heater Control',
         description: 'Modified a space heater to be able to turn on at given time.',
         dateCreated: '2017/01/01',
-        dateCompleted: '2017/01/01',
+        dateCompleted: '2017/12/10',
         imagePath: "assets/ArduinoHeaterControl/ArduinoHeaterControl-BoardAndCables1%20-%20IMG_2368%20copy.jpeg",
         moreImagesPath: [
             "assets/ArduinoHeaterControl/ArduinoHeaterControl-board-bottom-partial - IMG_2343 copy.jpeg",
@@ -567,7 +583,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<br>\n<h2> Arduino Projects</h2>\n  <div  *ngIf=\"show\">\n\t  \t<a href=\"#\" (click)=\"toggle()\" class=\"btn-primary\">Back/Close</a>\n\t\t<app-arduino-detail [arduino]=\"selectedArduino\"></app-arduino-detail>\n   </div>\n<div class=\"card-deck\">\n\t<div class=\"card arduino-cards\" *ngFor=\"let arduino of arduinoProjects\" [class.selected]=\"arduino === selectedArduino\" (click)=\"onSelect(arduino); toggle()\"><h6 class=\"card-title\" >{{arduino.title}}</h6>\n\t\t<img class=\"card-img-top\" style=\"\" src=\"{{arduino.imagePath}}\">\n\t\t<div class=\"card-body\">\n<!--\n\t\t\t<div class=\"card-text\">\n\t\t\t\t<p> a</p>\n\t\t\t</div>\n-->\n\t\t</div>\n\t\t<div class=\"card-footer\" style=\"margin: 0px\">\n\t\t  <small class=\"text-muted\">{{arduino.dateCompleted}}</small>\n\t\t</div>\n\t</div>\n</div>\n"
+module.exports = "<br>\n<h2> Arduino Projects</h2>\n\n  <div  *ngIf=\"show\">\n\t  \t<a href=\"#\" (click)=\"toggle()\" class=\"btn-primary\">Back/Close</a>\n\t\t<app-arduino-detail [arduino]=\"selectedArduino\"></app-arduino-detail>\n   </div>\n<div class=\"card-deck\">\n\t<div class=\"card arduino-cards\" *ngFor=\"let arduino of arduinoProjects\" [class.selected]=\"arduino === selectedArduino\" (click)=\"onSelect(arduino); toggle()\"><h6 class=\"card-title\" >{{arduino.title}}</h6>\n\t\t<img class=\"card-img-top\" style=\"\" src=\"{{arduino.imagePath}}\">\n\t\t<div class=\"card-body\">\n\t\t\t\n\t\t\n\t\t\t<div class=\"card-text\">\n\t\t\t\t<p> a space for text</p>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"card-footer\" style=\"margin: 0px\">\n\t\t  <small class=\"text-muted\">{{arduino.dateCompleted}}</small>\n\t\t</div>\n\t</div>\n</div>\n"
 
 /***/ }),
 
@@ -647,7 +663,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- This is home.\n\t<br>\n\t{{now | date}}\n\t<br>\n{{ \"now\" | uppercase}}\n\t<br> -->\n\t<div><h3>El Horse</h3><img src=\"assets/El-Horse-forweb1000.png\"/></div>\n\n<!--<app-arduino-detail [arduino]=\"selectedArduino\"></app-arduino-detail>-->\n\n<!--\n<div class=\"card-deck\">\n<app-arduino class=\"card rounded-image\" style=\"min-width: 18rem; padding: 15px; margin: 15px; box-shadow: 15px 15px 15px\"\n*ngFor=\"let arduino of arduinoProjects\" [arduino]=\"arduino\"></app-arduino>\n</div>\n-->\n\n\n<app-arduino></app-arduino>\n"
+module.exports = "Welcome to my website.\n<br>\n\t{{now | date}}\n\t<br>\n<!--{{ \"now\" | uppercase}}-->\n\t<br> \n\n<!--<app-arduino-detail [arduino]=\"selectedArduino\"></app-arduino-detail>-->\n\n<p>\n\t<a routerLink=\"/arduino\">Arduino</a>\n\t<br>\n\t<a routerLink=\"/personal\">Personal</a>\n\t<br>\n\t<a routerLink=\"/professional\">Professional</a>\n</p>\n<div>\n\t<img src=\"/assets/PortalBenjaminDark.png\">\n</div>\n"
 
 /***/ }),
 
@@ -794,7 +810,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"fixed-top navbar navColors\">\n<!--\t<div></div>-->\n\t<a class=\"navbar-brand\" data-toggle=\"collapse\" data-target=\"#navbarTogglerDemo02\" aria-controls=\"navbarTogglerDemo02\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n\t\t<img class=\"navColors\" src=\"assets/PortalBenjaminDarkRes180.png\" width=\"35px\" class=\"d-inline-block align-top\" alt=\"rick\" title=\"rick\"> Benjamin.Website\n\t</a>\n\t<button class=\"navbar-toggler custom-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarTogglerDemo02\" aria-controls=\"navbarTogglerDemo02\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n\t\t<span class=\"navbar-toggler-icon\"></span>\n\t</button>\n\t<div class=\"collapse navbar-collapse\" id=\"navbarTogglerDemo02\">\n\t\t<ul class=\"navbar-nav mr-auto mt-2 mt-lg-0\">\n\t\t\t<li class=\"nav-item active\">\n\t\t\t\t<a class=\"nav-link\" href=\"index.html\">Home\n\t\t\t\t\t<span class=\"sr-only\">(current)</span>\n\t\t\t\t</a>\n\t\t\t</li>\n\t\t\t<li class=\"nav-item\">\n\t\t\t\t<a class=\"nav-link\" href=\"Professional.html\">Professional</a>\n\t\t\t</li>\n\t\t\t<li class=\"nav-item\">\n\t\t\t\t<a class=\"nav-link\" href=\"Personal.html\">Personal</a>\n\t\t\t</li>\n\t\t\t<li class=\"nav-item\">\n\t\t\t\t<a class=\"nav-link\" href=\"Arduino.html\">Arduino</a>\n\t\t\t</li>\n\t\t</ul>\n\t</div>\n<!--\t\t<div></div>-->\n</nav>\n"
+module.exports = "<nav class=\"fixed-top navbar navColors\">\n<!--\t<div></div>-->\n\t<a class=\"navbar-brand\" data-toggle=\"collapse\" data-target=\"#navbarTogglerDemo02\" aria-controls=\"navbarTogglerDemo02\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n\t\t<img class=\"navColors\" src=\"assets/PortalBenjaminDarkRes180.png\" width=\"35px\" class=\"d-inline-block align-top\" alt=\"rick\" title=\"rick\"> Benjamin.Website\n\t</a>\n\t<button class=\"navbar-toggler custom-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarTogglerDemo02\" aria-controls=\"navbarTogglerDemo02\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n\t\t<span class=\"navbar-toggler-icon\"></span>\n\t</button>\n\t<div class=\"collapse navbar-collapse\" id=\"navbarTogglerDemo02\">\n\t\t<ul class=\"navbar-nav mr-auto mt-2 mt-lg-0\">\n\t\t\t<li class=\"nav-item active\">\n\t\t\t\t<a class=\"nav-link\" routerLink=\"/home\">Home\n\t\t\t\t\t<span class=\"sr-only\">(current)</span>\n\t\t\t\t</a>\n\t\t\t</li>\n\t\t\t<li class=\"nav-item\">\n\t\t\t\t<a class=\"nav-link\" routerLink=\"/professional\">Professional</a>\n\t\t\t</li>\n\t\t\t<li class=\"nav-item\">\n\t\t\t\t<a class=\"nav-link\" routerLink=\"/personal\">Personal</a>\n\t\t\t</li>\n\t\t\t<li class=\"nav-item\">\n\t\t\t\t<a class=\"nav-link\" routerLink=\"/arduino\">Arduino</a>\n\t\t\t</li>\n\t\t</ul>\n\t</div>\n<!--\t\t<div></div>-->\n</nav>\n"
 
 /***/ }),
 
@@ -857,7 +873,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  personal works!\n</p>\n"
+module.exports = "<br>\n<div>\n\t<h3>\n\t\tPersonal content coming soon!\n\t</h3>\n</div>\n<div><h4>El Horse</h4><img src=\"assets/El-Horse-forweb1000.png\"/></div>\n"
 
 /***/ }),
 
@@ -920,7 +936,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  professional works!\n</p>\n"
+module.exports = "<br>\n\n<h4 ><a class=\"box\" style=\"font-size: 1em\" routerLink=\"/arduino\">Arduino</a></h4>\n<br>\n<div>\n\t<h5>\n\t\tMore professional content coming soon!\n\t</h5>\n</div>"
 
 /***/ }),
 
