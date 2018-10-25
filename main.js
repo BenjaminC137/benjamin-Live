@@ -705,7 +705,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "Welcome to my website.\n<br>\n\t{{now | date}}\n\t<br>\n<!--{{ \"now\" | uppercase}}-->\n\t<br>\n\n<!--<app-arduino-detail [arduino]=\"selectedArduino\"></app-arduino-detail>-->\n\n<p>\n\t<a routerLink=\"/arduino\">Arduino</a>\n\t<br>\n\t<a routerLink=\"/personal\">Personal</a>\n\t<br>\n\t<a routerLink=\"/professional\">Professional</a>\n</p>\n<div>\n\t<img src=\"/assets/PortalBenjaminDark.png\">\n</div>\n"
+module.exports = "Welcome to my website.\n<br>\n\t{{now | date}}\n\t<br>\n<!--{{ \"now\" | uppercase}}-->\n\t<br>\n\n<!--<app-arduino-detail [arduino]=\"selectedArduino\"></app-arduino-detail>-->\n\n<p>\n\t<a routerLink=\"/arduino\">Arduino</a>\n\t<br>\n\t<a routerLink=\"/personal\">Personal</a>\n\t<br>\n\t<a routerLink=\"/professional\">Professional</a>\n</p>\n<div>\n\tleading dot and slash:\n\t<br>\n\t<img src=\"./assets/PortalBenjaminDark.png\">\n\t<br>\n\tno leading slash:\n\t<br>\n\t<img src=\"assets/PortalBenjaminDark.png\">\n</div>\n"
 
 /***/ }),
 
