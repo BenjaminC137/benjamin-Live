@@ -59,7 +59,8 @@ var routes = [
     { path: 'arduino', component: _arduino_arduino_component__WEBPACK_IMPORTED_MODULE_3__["ArduinoComponent"] },
     { path: 'arduino-detail/:id', component: _arduino_detail_arduino_detail_component__WEBPACK_IMPORTED_MODULE_4__["ArduinoDetailComponent"] },
     { path: 'personal', component: _personal_personal_component__WEBPACK_IMPORTED_MODULE_5__["PersonalComponent"] },
-    { path: 'professional', component: _professional_professional_component__WEBPACK_IMPORTED_MODULE_6__["ProfessionalComponent"] }
+    { path: 'professional', component: _professional_professional_component__WEBPACK_IMPORTED_MODULE_6__["ProfessionalComponent"] },
+    { path: '**', component: _home_home_component__WEBPACK_IMPORTED_MODULE_2__["HomeComponent"] }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -705,7 +706,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "Welcome to my website.\n<br>\n\t{{now | date}}\n\t<br>\n<!--{{ \"now\" | uppercase}}-->\n\t<br>\n\n<!--<app-arduino-detail [arduino]=\"selectedArduino\"></app-arduino-detail>-->\n\n<p>\n\t<a routerLink=\"/arduino\">Arduino</a>\n\t<br>\n\t<a routerLink=\"/personal\">Personal</a>\n\t<br>\n\t<a routerLink=\"/professional\">Professional</a>\n</p>\n<div>\n\tleading dot and slash:\n\t<br>\n\t<img src=\"./assets/PortalBenjaminDark.png\">\n\t<br>\n\tno leading slash:\n\t<br>\n\t<img src=\"assets/PortalBenjaminDark.png\">\n</div>\n"
+module.exports = "Welcome to my website.\n<br>\n\t{{now | date}}\n\t<br>\n<!--{{ \"now\" | uppercase}}-->\n\t<br>\n\n<!--<app-arduino-detail [arduino]=\"selectedArduino\"></app-arduino-detail>-->\n\n<p>\n\t<a routerLink=\"/arduino\">Arduino</a>\n\t<br>\n\t<a routerLink=\"/personal\">Personal</a>\n\t<br>\n\t<a routerLink=\"/professional\">Professional</a>\n</p>\n<div>\n<!--\tleading dot and slash:-->\n\t<img src=\"./assets/PortalBenjaminDark.png\">\n<!--\n\tno leading slash:\n\t<br>\n\t<img src=\"assets/PortalBenjaminDark.png\">\n-->\n</div>\n"
 
 /***/ }),
 
