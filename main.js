@@ -224,7 +224,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--\n<div *ngIf=\"arduino\">\n  <h2>{{arduino.title | uppercase}} Details</h2>\n  <div><span>id: </span>{{arduino.id}}</div>\n  <div>\n    <label>title:\n      <input [(ngModel)]=\"arduino.title\" placeholder=\"title\"/>\n    </label>\n  </div>\n-->\n<button class=\"btn-primary\" (click)=\"goBack()\">Back/Close</button>\n<div class=\"project\">\n\t<h3>{{arduino.title | uppercase}}</h3>\n\t<br>\n\t<div class=\"box\">\n\t\t<h4>Introduction: </h4>\n\t\t{{arduino.description}}\n\t\t<br>\n\t\t<br>\n\t\tCreated: {{arduino.dateCreated | date}}\n\t\t<br>\n\t\tCompleted: {{arduino.dateCompleted | date}}\n\t\t<br>\n\t</div>\n\t<br>\n\t<div class=\"box\">\n\t\t<h4>Components: </h4>\n\t\t<ul>\n\t\t\t<li *ngFor=\"let component of arduino.components\">{{component}}</li>\n\t\t</ul>\n\t</div>\n\t<br>\n\t<div class=\"box\">\n\t\t<h4>Libraries: </h4>\n\t\t<ul>\n\t\t\t<li *ngFor=\"let library of arduino.libraries\">{{library}}</li>\n\t\t</ul>\n\t</div>\n\t<br>\n\t<div class=\"arduino-cards\">\n\t\t<img class=\"img-scale\" src=\"{{arduino.imagePath}}\">\n\t\t<a href=\"{{arduino.imagePath}}\">View hi-res\n\t\t</a>\n\t</div>\n\t<br>\n<!--\n\t<div class=\"box\"><iframe class=\"box\" width=\"560\" height=\"315\" src=\"{{arduino.videoUrl}}\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen></iframe></div>\n-->\n\t<h4>More images: </h4>\n\t<div class=\"container\">\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col arduino-cards\" *ngFor=\"let image of arduino.moreImagesPath\">\n\t\t\t\t<img class=\"img-scale\" src={{image}}>\n\t\t\t\t<a href=\"{{image}}\">View hi-res</a>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\t\t<h4>Video: </h4>\n\t\t<p>{{arduino.videoUrl}}</p>\n</div>\n<br>\n<br>\n"
+module.exports = "<!--\n<div *ngIf=\"arduino\">\n  <h2>{{arduino.title | uppercase}} Details</h2>\n  <div><span>id: </span>{{arduino.id}}</div>\n  <div>\n    <label>title:\n      <input [(ngModel)]=\"arduino.title\" placeholder=\"title\"/>\n    </label>\n  </div>\n-->\n<button class=\"btn-primary\" (click)=\"goBack()\">Back/Close</button>\n<div class=\"project\">\n\t<h3>{{arduino.title | uppercase}}</h3>\n\t<br>\n\t<div class=\"box\">\n\t\t<h4>Introduction: </h4>\n\t\t{{arduino.description}}\n\t\t<br>\n\t\t<br>\n\t\tCreated: {{arduino.dateCreated | date}}\n\t\t<br>\n\t\tCompleted: {{arduino.dateCompleted | date}}\n\t\t<br>\n\t</div>\n\t<br>\n\t<div class=\"box\">\n\t\t<h4>Components: </h4>\n\t\t<ul>\n\t\t\t<li *ngFor=\"let component of arduino.components\">{{component}}</li>\n\t\t</ul>\n\t</div>\n\t<br>\n\t<div class=\"box\">\n\t\t<h4>Libraries: </h4>\n\t\t<ul>\n\t\t\t<li *ngFor=\"let library of arduino.libraries\">{{library}}</li>\n\t\t</ul>\n\t</div>\n\t<br>\n\t<div class=\"card arduino-images\">\n\t\t<img class=\"img-scale\" src=\"{{arduino.imagePath}}\">\n\t\t<a href=\"{{arduino.imagePath}}\">View hi-res\n\t\t</a>\n\t</div>\n\t<br>\n<!--\n\t<div class=\"box\"><iframe class=\"box\" width=\"560\" height=\"315\" src=\"{{arduino.videoUrl}}\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen></iframe></div>\n-->\n\t<h4>More images: </h4>\n\t<div class=\"container\">\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col card arduino-images\" *ngFor=\"let image of arduino.moreImagesPath; index as i\">\n\t\t\t\t<img class=\"img-scale\" src={{image}}>\n\t\t\t\t<div class=\"card-body\">\n\t\t\t\t\t<p class=\"card-text\">{{arduino.imageCaption[i]}}</p>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"card-footer\" ><a class=\"\" href=\"{{image}}\">View hi-res</a></div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\t\t<h4>Video: </h4>\n\t\t<p>{{arduino.videoUrl}}</p>\n</div>\n"
 
 /***/ }),
 
@@ -256,6 +256,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 var ArduinoDetailComponent = /** @class */ (function () {
+    //	currentImage = 0;
     function ArduinoDetailComponent(route, arduinoService, location) {
         this.route = route;
         this.arduinoService = arduinoService;
@@ -303,12 +304,40 @@ var ArduinoProjects = [
     {
         id: 1,
         title: 'Neechi Feeder',
-        description: 'I designed a dog feeder and built the entire machine using a stepper motor, a servo motor, an LCD screen, an RTC module, custom home-made metal frame and agitator, arduino nano and everything else I used...',
+        description: 'I designed a dog feeder and built the entire contraption. It automatically releases a designated amount of food twice per day based on a predetermined feeding schedule. An Led display shows the current time, the quantity of times fed per day and the time in which the last feeding was released including manual feedings. A button allows for manual feeding.',
         dateCreated: '2018/03/21',
         dateCompleted: '2018/04/18',
         imagePath: "assets/ArduinoNeechiFeeder/Neechi-full-IMG_8273.jpeg",
         moreImagesPath: [
-            "assets/ArduinoNeechiFeeder/Neechi-agitator-assembly-IMG_8224.png", "assets/ArduinoNeechiFeeder/Neechi-agitator-rod-IMG_8261-2.png", "assets/ArduinoNeechiFeeder/Neechi-door-not-cut-IMG_6596.png", "assets/ArduinoNeechiFeeder/Neechi-electronics-and-machine-IMG_7498.png", "assets/ArduinoNeechiFeeder/Neechi-electronics-dark-IMG_7545.png", "assets/ArduinoNeechiFeeder/Neechi-full-room-IMG_8273.png", "assets/ArduinoNeechiFeeder/Neechi-motor-mount-back-IMG_8192.png", "assets/ArduinoNeechiFeeder/Neechi-motor-mount-IMG_8181.png", "assets/ArduinoNeechiFeeder/Neechi-motor-mount-on-motor-IMG_8174.png", "assets/ArduinoNeechiFeeder/Neechi-motor-mounted-IMG_6585.png", "assets/ArduinoNeechiFeeder/Neechi-mounted-old-stepper-IMG_7465.png", "assets/ArduinoNeechiFeeder/Neechi-room-IMG_8230.png", "assets/ArduinoNeechiFeeder/Neechi-workbench-IMG_7441.png"
+            "assets/ArduinoNeechiFeeder/Neechi-agitator-assembly-IMG_8224.png",
+            "assets/ArduinoNeechiFeeder/Neechi-agitator-rod-IMG_8261-2.png",
+            "assets/ArduinoNeechiFeeder/Neechi-door-not-cut-IMG_6596.png",
+            "assets/ArduinoNeechiFeeder/Neechi-electronics-dark-IMG_7545.png",
+            "assets/ArduinoNeechiFeeder/Neechi-electronics-and-machine-IMG_7498.png",
+            "assets/ArduinoNeechiFeeder/Neechi-motor-mount-back-IMG_8192.png",
+            "assets/ArduinoNeechiFeeder/Neechi-motor-mount-IMG_8181.png",
+            "assets/ArduinoNeechiFeeder/Neechi-motor-mount-on-motor-IMG_8174.png",
+            "assets/ArduinoNeechiFeeder/Neechi-motor-mounted-IMG_6585.png",
+            "assets/ArduinoNeechiFeeder/Neechi-mounted-old-stepper-IMG_7465.png",
+            "assets/ArduinoNeechiFeeder/Neechi-room-IMG_8230.png",
+            "assets/ArduinoNeechiFeeder/Neechi-workbench-IMG_7441.png" //12
+        ],
+        imageCaption: [
+            "Agitator assembly including agitator rod, stepper motor and motor housing",
+            "Agitator rod: Folded sheet steel and twisted to create an agitator that will spiral and thus push food out so food doesn't get stuck.",
+            "Hatch door mounted to hatch mount before cutting the opening hole",
+            "Electronics in the dark. Often times, uncompleted electronics are quite astheticly pleasing.",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "Creating and constructing the agitator assemply",
+            "",
+            "",
+            "" //15
         ],
         videoUrl: "https://www.youtube.com/embed/lyI5C47GDH0",
         components: [
@@ -336,7 +365,25 @@ var ArduinoProjects = [
         dateCompleted: '2016/01/02',
         imagePath: "assets/ArduinoBuddy/buddy-full-top-IMG_0541.jpeg",
         moreImagesPath: [
-            "assets/ArduinoBuddy/buddy-full-front-IMG_0542.jpeg", "assets/ArduinoBuddy/buddy-full-old-IMG_0423.png"
+            "assets/ArduinoBuddy/buddy-full-front-IMG_0542.jpeg",
+            "assets/ArduinoBuddy/buddy-full-old-IMG_0423.png" //2
+        ],
+        imageCaption: [
+            "3 pairs - Ultrasonic sensors",
+            "First iteration with single ultrasonic sensor",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "" //15
         ],
         videoUrl: "coming soon",
         components: [
@@ -360,7 +407,24 @@ var ArduinoProjects = [
         dateCompleted: '2018/10/08',
         imagePath: "assets/ArduinoCrunchCounter/crunchCounter-beta-IMG_4616.jpg",
         moreImagesPath: [
-            "assets/coming-soon.png"
+            "assets/coming-soon.png" //1
+        ],
+        imageCaption: [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "" //15
         ],
         videoUrl: "cooming soon",
         components: [
@@ -385,7 +449,24 @@ var ArduinoProjects = [
         dateCompleted: '2017/09/02',
         imagePath: "assets/ArduinoFridgeAlarm/FridgeAlarm-box-IMG_4612.jpg",
         moreImagesPath: [
-            "assets/ArduinoFridgeAlarm/FridgeAlarm-button-IMG_4614.jpg"
+            "assets/ArduinoFridgeAlarm/FridgeAlarm-button-IMG_4614.jpg" //1
+        ],
+        imageCaption: [
+            "Button that gets pushed when the door closes",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "" //15
         ],
         videoUrl: "coming soon",
         components: [
@@ -406,7 +487,24 @@ var ArduinoProjects = [
         dateCompleted: '2017/12/08',
         imagePath: "assets/ArduinoHomeBox/Homebox-complete-IMG_8136.png",
         moreImagesPath: [
-            "assets/coming-soon.png"
+            "assets/ArduinoHomeBox/HomeBox-breadboardPrep-IMG_1757.jpeg"
+        ],
+        imageCaption: [
+            "Electrical tapes hold the wires to the breadboards while the prototype is tested",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "" //15
         ],
         videoUrl: "coming soon",
         components: [
@@ -427,7 +525,24 @@ var ArduinoProjects = [
         dateCompleted: '2018/01/21',
         imagePath: "assets/ArduinoSmartTank/smartTank-hot-art-IMG_3017.jpeg",
         moreImagesPath: [
-            "assets/coming-soon.png"
+            "assets/coming-soon.png" //1
+        ],
+        imageCaption: [
+            "image placeholder",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "" //15
         ],
         videoUrl: "coming soon",
         components: [
@@ -459,7 +574,24 @@ var ArduinoProjects = [
         dateCompleted: '2018/07/02',
         imagePath: "assets/ArduinoSecuritySystem/SecuritySystem-inside-IMG_4506.jpeg",
         moreImagesPath: [
-            "assets/coming-soon.png"
+            "assets/coming-soon.png" //1
+        ],
+        imageCaption: [
+            "image placeholder",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "" //15
         ],
         videoUrl: "coming soon",
         components: [
@@ -486,13 +618,29 @@ var ArduinoProjects = [
             "assets/ArduinoHeaterControl/ArduinoHeaterControl-BoardAndCables2 - IMG_2367 copy.jpeg",
             "assets/ArduinoHeaterControl/ArduinoHeaterControl-BoardComplete - IMG_2366 copy.jpeg",
             "assets/ArduinoHeaterControl/ArduinoHeaterControl-BoardSide - IMG_2365 copy.jpeg",
-            "assets/ArduinoHeaterControl/ArduinoHeaterControl-breadboardPrep - IMG_1757 copy.jpeg",
+            "assets/ArduinoHeaterControl/ArduinoHeaterControl-Controller - IMG_1740 copy.jpeg",
             "assets/ArduinoHeaterControl/ArduinoHeaterControl-Cable-entry-internal - IMG_1741 copy.jpeg",
             "assets/ArduinoHeaterControl/ArduinoHeaterControl-cableExit - IMG_1742 copy.jpeg",
             "assets/ArduinoHeaterControl/ArduinoHeaterControl-CableExit2 - IMG_1754 copy.jpeg",
             "assets/ArduinoHeaterControl/ArduinoHeaterControl-CablesSolderedToController1 - IMG_1747 copy.jpeg",
-            "assets/ArduinoHeaterControl/ArduinoHeaterControl-CablesSolderedToController2 - IMG_1753 copy.jpeg",
-            "assets/ArduinoHeaterControl/ArduinoHeaterControl-Controller - IMG_1740 copy.jpeg"
+            "assets/ArduinoHeaterControl/ArduinoHeaterControl-CablesSolderedToController2 - IMG_1753 copy.jpeg" //13
+        ],
+        imageCaption: [
+            "Bottom of the circuit board I made for condensing the wiring.",
+            "By condensing the electronics by creating this board, it will allow me to fit all of the components into the tiny project-box/housing.",
+            "Top view of the board (This is very cool).",
+            "Top view of the board whilst connected to the wires.",
+            "Board is ready to be inserted into the housing.",
+            "Beautiful shot of the board with test LEDs",
+            "Side shot of the board with test LEDs to show board's thickness",
+            "Jumper wires soldered to the existing space heater's controller board",
+            "Wires are fed through a hole I drilled to connect to the arduino externally",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "" //15
         ],
         videoUrl: "coming soon",
         components: [
@@ -516,6 +664,23 @@ var ArduinoProjects = [
             "assets/ArduinoTemperatureAlarm/temperature-alarm-pano-IMG_7720.png",
             "assets/ArduinoTemperatureAlarm/temperature-alarm-workspace-MG_7652.png"
         ],
+        imageCaption: [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "" //15
+        ],
         videoUrl: "coming soon",
         components: [
             "Arduino nano",
@@ -538,6 +703,23 @@ var ArduinoProjects = [
         imagePath: "assets/ArduinoScale/scale-calibrating-IMG_4610.jpg",
         moreImagesPath: [
             "assets/coming-soon.png"
+        ],
+        imageCaption: [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "" //15
         ],
         videoUrl: "coming soon",
         components: [
@@ -629,7 +811,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<br>\n<h2> Arduino Projects</h2>\n<!--\n<div>\n\t<img src=\"/assets/PortalBenjaminDark.png\">\n</div>\n-->\n<!--\n  <div  *ngIf=\"show\">\n\t  \t<a href=\"#\" (click)=\"toggle()\" class=\"btn-primary\">Back/Close</a>\n\t\t<app-arduino-detail [arduino]=\"selectedArduino\"></app-arduino-detail>\n   </div>\n-->\n<div class=\"card-deck\">\n<!--\t<div class=\"card arduino-cards\" *ngFor=\"let arduino of arduinoProjects\" [class.selected]=\"arduino === selectedArduino\" (click)=\"onSelect(arduino); toggle()\">-->\n\t<div class=\"card arduino-cards\" *ngFor=\"let arduino of arduinoProjects\" routerLink=\"/arduino-detail/{{arduino.id}}\">\n\t\t<h6 class=\"card-title\" >{{arduino.title}}</h6>\n\t\t<img class=\"card-img-top\" style=\"\" src=\"{{arduino.imagePath}}\">\n\t\t<div class=\"card-body\">\n\n\t\t\t<div class=\"card-text\">\n\t\t\t\t<p> a space for text</p>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"card-footer\" style=\"margin: 0px\">\n\t\t  <small class=\"text-muted\">{{arduino.dateCompleted}}</small>\n\t\t</div>\n\t</div>\n</div>\n"
+module.exports = "<br>\n<h2> Arduino Projects</h2>\n\n<div class=\"card-deck\">\n<!--\t<div class=\"card arduino-cards\" *ngFor=\"let arduino of arduinoProjects\" [class.selected]=\"arduino === selectedArduino\" (click)=\"onSelect(arduino); toggle()\">-->\n\t<div class=\"card arduino-cards arduino-card-hover\" *ngFor=\"let arduino of arduinoProjects\" routerLink=\"/arduino-detail/{{arduino.id}}\">\n\t\t<h6 class=\"card-title\" >{{arduino.title}}</h6>\n\t\t<img class=\"card-img-top\" style=\"\" src=\"{{arduino.imagePath}}\">\n\t\t<div class=\"card-body\">\n\t\t\t<div class=\"card-text\">\n<!--\t\t\t\t<p class=\"limitText\" >{{arduino.description}}</p>-->\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"card-footer\" style=\"margin: 0px\">\n\t\t  <small class=\"text-muted\">{{arduino.dateCompleted}}</small>\n\t\t</div>\n\t</div>\n</div>\n"
 
 /***/ }),
 
